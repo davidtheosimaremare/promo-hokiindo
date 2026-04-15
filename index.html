@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Up Your Project — Promo Panel Builder | PT Hokiindo Raya x Siemens</title>
+    <meta name="description"
+        content="Jadikan setiap instalasi panel Anda tiket menuju destinasi impian. Program reward perjalanan eksklusif untuk Panel Builder dari PT Hokiindo Raya & Siemens.">
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hoki-red': '#e7000b',
+                        'hoki-red-dark': '#b80009',
+                        'hoki-red-light': '#ff2a34',
+                        'siemens': '#000028',
+                        'siemens-mid': '#0a0a4a',
+                        'siemens-light': '#1a1a6a',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.8s ease-out',
+                        'slide-up-delayed': 'slide-up 0.8s ease-out 0.2s both',
+                        'slide-up-delayed-2': 'slide-up 0.8s ease-out 0.4s both',
+                        'fade-in': 'fade-in 1s ease-out',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+                        'plane-fly': 'plane-fly 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(231, 0, 11, 0.2)' },
+                            '50%': { boxShadow: '0 0 40px rgba(231, 0, 11, 0.45)' },
+                        },
+                        'slide-up': {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        'shimmer': {
+                            '0%': { backgroundPosition: '-200% center' },
+                            '100%': { backgroundPosition: '200% center' },
+                        },
+                        'bounce-subtle': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        'plane-fly': {
+                            '0%': { transform: 'translateX(-10px) translateY(5px) rotate(-5deg)' },
+                            '50%': { transform: 'translateX(10px) translateY(-5px) rotate(5deg)' },
+                            '100%': { transform: 'translateX(-10px) translateY(5px) rotate(-5deg)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000028;
+            border-radius: 3px;
+        }
+
+        /* Gradient text — dark blue to red */
+        .gradient-text {
+            background: linear-gradient(135deg, #000028 0%, #e7000b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-light {
+            background: linear-gradient(135deg, #ffffff 0%, #ffd6d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Shimmer CTA */
+        .shimmer-btn {
+            background-size: 200% auto;
+            background-image: linear-gradient(90deg, #e7000b 0%, #ff4444 25%, #e7000b 50%, #ff4444 75%, #e7000b 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .shimmer-btn-dark {
+            background-size: 200% auto;
+            background-image: linear-gradient(90deg, #000028 0%, #1a1a6a 25%, #000028 50%, #1a1a6a 75%, #000028 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        /* Subtle grid background */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(0, 0, 40, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 40, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Destination card hover */
+        .destination-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .destination-card:hover .card-image {
+            transform: scale(1.08);
+        }
+
+        .card-image {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Floating particles (hero only) */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* Scroll-triggered animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress bar */
+        .progress-fill {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* WhatsApp floating btn */
+        .wa-float {
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        .wa-float::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, 0.25);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Hero overlay — keeps hero dark for readability */
+        .hero-overlay {
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 40, 0.80) 0%,
+                    rgba(0, 0, 40, 0.65) 30%,
+                    rgba(0, 0, 40, 0.80) 70%,
+                    rgba(0, 0, 40, 0.95) 100%);
+        }
+
+        /* Tier badge shine */
+        .tier-badge {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-badge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.15) 50%,
+                    transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        /* Nav */
+        .nav-blur {
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 30px rgba(0, 0, 40, 0.08);
+        }
+
+        .nav-logo {
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .scrolled .nav-logo {
+            filter: none;
+        }
+
+        /* Card soft shadow */
+        .card-shadow {
+            box-shadow: 0 4px 40px rgba(0, 0, 40, 0.06);
+        }
+
+        .card-shadow:hover {
+            box-shadow: 0 8px 50px rgba(0, 0, 40, 0.12);
+        }
+
+        /* Term card */
+        .term-card {
+            transition: all 0.3s ease;
+        }
+
+        .term-card:hover {
+            border-color: rgba(0, 0, 40, 0.15);
+            box-shadow: 0 4px 24px rgba(0, 0, 40, 0.06);
+        }
+    </style>
+</head>
+
+<body class="bg-white font-inter text-siemens overflow-x-hidden">
+
+    <!-- ========== STICKY NAV ========== -->
+    <nav id="navbar" class="nav-blur fixed top-0 left-0 right-0 z-50 px-4 py-3 md:px-8">
+        <div class="max-w-6xl mx-auto flex items-center justify-center">
+            <div class="flex items-center text-center">
+                <img src="images/logo/logo.png" alt="Hokiindo Raya × Siemens" class="nav-logo h-7 md:h-9 w-auto">
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION (stays dark for impact) ========== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 pb-8 md:pb-0">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="images/hero-banner.png" alt="Siemens Panel & Travel" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="particle w-2 h-2 bg-white top-[20%] left-[10%] animate-float" style="position:absolute;"></div>
+            <div class="particle w-3 h-3 bg-white/50 top-[40%] right-[15%] animate-float-delayed"
+                style="position:absolute;"></div>
+            <div class="particle w-1.5 h-1.5 bg-hoki-red/40 top-[60%] left-[25%] animate-float"
+                style="position:absolute;"></div>
+            <div class="particle w-2.5 h-2.5 bg-white/30 top-[30%] right-[30%] animate-float-delayed"
+                style="position:absolute;"></div>
+            <div class="particle w-2 h-2 bg-hoki-red/30 bottom-[20%] left-[60%] animate-float"
+                style="position:absolute;"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-5 text-center">
+            <!-- Mini badge -->
+            <div
+                class="animate-slide-up inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 mb-6 md:mb-8">
+                <span class="w-2 h-2 rounded-full bg-hoki-red animate-pulse"></span>
+                <span class="text-[10px] md:text-xs font-medium text-white/80 tracking-wider uppercase">Program
+                    Eksklusif 2026</span>
+            </div>
+
+            <!-- Headline -->
+            <h1
+                class="animate-slide-up-delayed text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 md:mb-6 text-white">
+                <span class="gradient-text-light">Power Up Your Project,</span>
+                <br>
+                <span class="text-white">Pack Your Bags for a Trip!</span>
+
+            </h1>
+
+            <!-- Subheadline -->
+            <p
+                class="animate-slide-up-delayed-2 text-sm md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+                Jadikan setiap instalasi panel Anda <span class="text-hoki-red font-semibold">tiket menuju destinasi
+                    impian</span>.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div
+                class="animate-slide-up-delayed-2 flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 md:mb-14">
+                <a href="https://wa.me/6281213656161?text=Halo%2C%20saya%20tertarik%20dengan%20promo%20Panel%20Builder%20Trip%20Reward!"
+                    id="hero-cta-wa"
+                    class="shimmer-btn animate-pulse-glow w-full sm:w-auto text-center font-bold text-sm md:text-base px-8 py-4 rounded-2xl text-white shadow-2xl shadow-hoki-red/30 hover:scale-105 transition-transform">
+                    🚀 Daftar Sekarang via WhatsApp
+                </a>
+                <a href="#rewards" id="hero-cta-learn"
+                    class="w-full sm:w-auto text-center bg-white/10 backdrop-blur-md border border-white/15 font-semibold text-sm md:text-base px-8 py-4 rounded-2xl text-white hover:bg-white/20 transition-all">
+                    Lihat Reward ↓
+                </a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6 max-w-md mx-auto">
+                <p class="text-[10px] md:text-xs text-white/50 uppercase tracking-widest mb-3">Program berakhir dalam
+                </p>
+                <div id="countdown" class="flex items-center justify-center gap-2 md:gap-4">
+                    <div class="text-center">
+                        <div class="countdown-digit text-2xl md:text-4xl font-black text-hoki-red" id="days">00</div>
+                        <div class="text-[8px] md:text-[10px] text-white/40 uppercase tracking-wider mt-1">Hari</div>
+                    </div>
+                    <span class="text-white/20 text-xl md:text-2xl font-light">:</span>
+                    <div class="text-center">
+                        <div class="countdown-digit text-2xl md:text-4xl font-black text-white" id="hours">00</div>
+                        <div class="text-[8px] md:text-[10px] text-white/40 uppercase tracking-wider mt-1">Jam</div>
+                    </div>
+                    <span class="text-white/20 text-xl md:text-2xl font-light">:</span>
+                    <div class="text-center">
+                        <div class="countdown-digit text-2xl md:text-4xl font-black text-white" id="minutes">00</div>
+                        <div class="text-[8px] md:text-[10px] text-white/40 uppercase tracking-wider mt-1">Menit</div>
+                    </div>
+                    <span class="text-white/20 text-xl md:text-2xl font-light">:</span>
+                    <div class="text-center">
+                        <div class="countdown-digit text-2xl md:text-4xl font-black text-white/60" id="seconds">00</div>
+                        <div class="text-[8px] md:text-[10px] text-white/40 uppercase tracking-wider mt-1">Detik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce-subtle">
+            <div class="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5">
+                <div class="w-1.5 h-3 bg-white/50 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== INTRO SECTION ========== -->
+    <section class="relative py-16 md:py-24 px-5 bg-white">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <div class="w-16 h-0.5 bg-siemens mx-auto mb-8"></div>
+            <p class="text-sm md:text-lg text-siemens/60 leading-relaxed md:leading-loose">
+                Mengerjakan proyek dengan <span class="text-siemens font-semibold">standar global Siemens</span> kini
+                terasa lebih memuaskan. Bersama Siemens,
+                <span class="text-hoki-red font-semibold">PT Hokiindo Raya</span> memberikan apresiasi
+                eksklusif bagi
+                Anda, para
+                <span class="text-siemens font-semibold">Panel Builder</span>, untuk terbang ke destinasi terbaik dunia!
+            </p>
+            <div class="w-16 h-0.5 bg-siemens mx-auto mt-8"></div>
+        </div>
+    </section>
+
+    <!-- ========== REWARDS SECTION ========== -->
+    <section id="rewards" class="relative py-16 md:py-24 px-5 bg-gray-50/80 grid-bg">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-hoki-red font-semibold">Destinasi
+                    Impian</span>
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-black mt-3 mb-4 text-siemens">
+                    Daftar <span class="gradient-text">Reward</span> Perjalanan
+                </h2>
+                <p class="text-sm md:text-base text-siemens/40 max-w-md mx-auto">Pilih destinasi sesuai target
+                    pencapaian Anda</p>
+            </div>
+
+            <!-- Destination Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- TIER 1: Europe -->
+                <div class="destination-card reveal" style="transition-delay: 0.1s;">
+                    <div class="relative rounded-3xl overflow-hidden bg-white border border-gray-100 card-shadow">
+                        <!-- Card Image -->
+                        <div class="relative h-56 md:h-64 overflow-hidden">
+                            <img src="images/europe.png" alt="Eropa - Jerman & Ceko"
+                                class="card-image w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent">
+                            </div>
+                            <!-- Tier Badge -->
+                            <div
+                                class="tier-badge absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                🏰 PLATINUM
+                            </div>
+                        </div>
+                        <!-- Card Content -->
+                        <div class="p-5 md:p-6">
+                            <h3 class="text-lg md:text-xl font-bold text-siemens mb-1">Eropa</h3>
+                            <p class="text-siemens/40 text-xs md:text-sm mb-4">Jerman & Ceko 🇩🇪 🇨🇿</p>
+                            <!-- Progress Indicator -->
+                            <div class="mb-4">
+                                <div class="flex justify-between text-[10px] md:text-xs mb-2">
+                                    <span class="text-siemens/35">Target Pembelian</span>
+                                    <span class="text-amber-600 font-bold">Rp3 Miliar</span>
+                                </div>
+                                <div class="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full"
+                                        style="width: 0%;" data-width="100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-[10px] md:text-xs text-siemens/30">
+                                <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span>Destinasi Premium #1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIER 2: Japan -->
+                <div class="destination-card reveal" style="transition-delay: 0.3s;">
+                    <div class="relative rounded-3xl overflow-hidden bg-white border border-gray-100 card-shadow">
+                        <div class="relative h-56 md:h-64 overflow-hidden">
+                            <img src="images/japan.png" alt="Jepang" class="card-image w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent">
+                            </div>
+                            <div
+                                class="tier-badge absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-rose-400 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                🌸 GOLD
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="text-lg md:text-xl font-bold text-siemens mb-1">Asia</h3>
+                            <p class="text-siemens/40 text-xs md:text-sm mb-4">Jepang 🇯🇵</p>
+                            <div class="mb-4">
+                                <div class="flex justify-between text-[10px] md:text-xs mb-2">
+                                    <span class="text-siemens/35">Target Pembelian</span>
+                                    <span class="text-pink-600 font-bold">Rp2 Miliar</span>
+                                </div>
+                                <div class="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="progress-fill h-full bg-gradient-to-r from-pink-500 to-rose-400 rounded-full"
+                                        style="width: 0%;" data-width="100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-[10px] md:text-xs text-siemens/30">
+                                <svg class="w-3.5 h-3.5 text-pink-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span>Destinasi Premium #2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIER 3: Bali -->
+                <div class="destination-card reveal" style="transition-delay: 0.5s;">
+                    <div class="relative rounded-3xl overflow-hidden bg-white border border-gray-100 card-shadow">
+                        <div class="relative h-56 md:h-64 overflow-hidden">
+                            <img src="images/bali.png" alt="Bali" class="card-image w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent">
+                            </div>
+                            <div
+                                class="tier-badge absolute top-4 left-4 bg-gradient-to-r from-emerald-500 to-teal-400 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                🏖️ SILVER
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="text-lg md:text-xl font-bold text-siemens mb-1">Domestik</h3>
+                            <p class="text-siemens/40 text-xs md:text-sm mb-4">Bali, Indonesia 🇮🇩</p>
+                            <div class="mb-4">
+                                <div class="flex justify-between text-[10px] md:text-xs mb-2">
+                                    <span class="text-siemens/35">Target Pembelian</span>
+                                    <span class="text-emerald-600 font-bold">Rp1 Miliar</span>
+                                </div>
+                                <div class="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="progress-fill h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                                        style="width: 0%;" data-width="100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-[10px] md:text-xs text-siemens/30">
+                                <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span>Destinasi Starter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TERMS / KETENTUAN SECTION ========== -->
+    <section id="ketentuan" class="relative py-16 md:py-24 px-5 bg-white">
+        <!-- Background decorative -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-siemens/[0.02] rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-72 h-72 bg-hoki-red/[0.03] rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-hoki-red font-semibold">Informasi
+                    Program</span>
+                <h2 class="text-2xl md:text-4xl font-black mt-3 text-siemens">Ketentuan <span
+                        class="gradient-text">Utama</span></h2>
+            </div>
+
+            <!-- Terms cards -->
+            <div class="space-y-4 md:space-y-5">
+
+                <!-- Term 1 -->
+                <div class="reveal term-card rounded-2xl p-5 md:p-6 bg-gray-50/80 border border-gray-100"
+                    style="transition-delay: 0.1s;">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-siemens/[0.06] flex items-center justify-center text-lg md:text-xl">
+                            📅
+                        </div>
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-siemens mb-1">Periode Program</h4>
+                            <p class="text-xs md:text-sm text-siemens/50 leading-relaxed">
+                                <span class="text-hoki-red font-semibold">1 April – 31 Juli 2026</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Term 2 -->
+                <div class="reveal term-card rounded-2xl p-5 md:p-6 bg-gray-50/80 border border-gray-100"
+                    style="transition-delay: 0.2s;">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-siemens/[0.06] flex items-center justify-center text-lg md:text-xl">
+                            🔧
+                        </div>
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-siemens mb-1">Produk yang Berlaku</h4>
+                            <p class="text-xs md:text-sm text-siemens/50 leading-relaxed">
+                                Komponen <span class="text-siemens font-medium">Siemens EP (Electrical Products)</span>
+                                sesuai daftar harga 2026.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Term 3 -->
+                <div class="reveal term-card rounded-2xl p-5 md:p-6 bg-gray-50/80 border border-gray-100"
+                    style="transition-delay: 0.3s;">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-siemens/[0.06] flex items-center justify-center text-lg md:text-xl">
+                            📊
+                        </div>
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-siemens mb-1">Akumulasi Minimum</h4>
+                            <p class="text-xs md:text-sm text-siemens/50 leading-relaxed">
+                                Perhitungan poin dimulai dari akumulasi minimal PO sebesar <span
+                                    class="text-siemens font-medium">Rp250 Juta</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Term 4 -->
+                <div class="reveal term-card rounded-2xl p-5 md:p-6 bg-gray-50/80 border border-gray-100"
+                    style="transition-delay: 0.4s;">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-siemens/[0.06] flex items-center justify-center text-lg md:text-xl">
+                            ✅
+                        </div>
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-siemens mb-1">Transparansi & Validasi</h4>
+                            <p class="text-xs md:text-sm text-siemens/50 leading-relaxed">
+                                Pastikan seluruh PO disalurkan melalui <span class="text-siemens font-medium">PT
+                                    Hokiindo Raya</span> untuk validasi pencapaian target.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA SECTION (dark blue accent band) ========== -->
+    <section id="cta" class="relative py-16 md:py-24 px-5 bg-siemens overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-[400px] h-[400px] bg-hoki-red/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative max-w-2xl mx-auto text-center reveal">
+            <!-- Decorative line -->
+            <div class="w-16 h-0.5 bg-hoki-red mx-auto mb-8"></div>
+
+            <p class="text-sm md:text-lg text-white/60 leading-relaxed mb-3">
+                Jangan biarkan <span class="text-white font-semibold">hard work</span> Anda selesai di workshop saja.
+            </p>
+            <h2 class="text-xl md:text-3xl lg:text-4xl font-black mb-8 md:mb-10 leading-tight text-white">
+                Saatnya <span class="gradient-text-light">power up</span> bisnis Anda dan siapkan koper untuk perjalanan
+                yang
+                <span class="text-hoki-red">tak terlupakan!</span> ✨
+            </h2>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col gap-4 max-w-sm mx-auto">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/6281213656161?text=Halo%2C%20saya%20tertarik%20dengan%20promo%20Panel%20Builder%20Trip%20Reward!"
+                    id="cta-whatsapp"
+                    class="group relative shimmer-btn animate-pulse-glow font-bold text-sm md:text-base px-8 py-4 rounded-2xl text-white shadow-2xl shadow-hoki-red/30 hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:scale-110" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Hubungi via WhatsApp
+                </a>
+
+                <!-- Email Button -->
+                <a href="mailto:info@hokiindo.co.id?subject=Pendaftaran%20Promo%20Panel%20Builder%20Trip%20Reward&body=Halo%20Tim%20Hokiindo%2C%0A%0ASaya%20tertarik%20dengan%20program%20Panel%20Builder%20Trip%20Reward.%0A%0ANama%3A%20%0APerusahaan%3A%20%0ANo.%20HP%3A%20%0A%0ATerima%20kasih."
+                    id="cta-email"
+                    class="bg-white/10 backdrop-blur-md border border-white/15 font-semibold text-sm md:text-base px-8 py-4 rounded-2xl text-white/90 hover:bg-white/20 transition-all flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Email: info@hokiindo.co.id
+                </a>
+            </div>
+
+            <p class="text-[10px] md:text-xs text-white/30 mt-6">*Syarat dan ketentuan berlaku.</p>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-gray-100 py-8 md:py-10 px-5 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center">
+                    <img src="images/logo/logo.png" alt="Hokiindo Raya × Siemens" class="h-7 md:h-8 w-auto">
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-[10px] md:text-xs text-siemens/30">
+                        © 2026 PT Hokiindo Raya. All rights reserved.
+                    </p>
+                    <p class="text-[10px] md:text-xs text-siemens/20 mt-1">
+                        Program berlaku 1 April – 31 Juli 2026
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING WHATSAPP BUTTON ========== -->
+    <a href="https://wa.me/6281213656161?text=Halo%2C%20saya%20tertarik%20dengan%20promo%20Panel%20Builder%20Trip%20Reward!"
+        id="wa-floating"
+        class="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
+        aria-label="Chat WhatsApp">
+        <svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ===== COUNTDOWN TIMER =====
+        function updateCountdown() {
+            const endDate = new Date('2026-07-31T23:59:59+07:00');
+            const now = new Date();
+            const diff = endDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===== SCROLL REVEAL ANIMATION =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== PROGRESS BAR ANIMATION =====
+        const progressBars = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const width = target.getAttribute('data-width');
+                    setTimeout(() => {
+                        target.style.width = width;
+                    }, 300);
+                }
+            });
+        }, { threshold: 0.5 });
+        progressBars.forEach(bar => progressObserver.observe(bar));
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
